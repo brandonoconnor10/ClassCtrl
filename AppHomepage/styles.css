@@ -1,0 +1,259 @@
+/* Import fonts (same as ClassCtrl apps) */
+@import url('https://fonts.googleapis.com/css2?family=Offside&family=Zen+Dots&display=swap');
+
+/* Define variables to match existing ClassCtrl design */
+:root {
+    --font-primary: 'Offside', sans-serif;
+    --font-heading: 'Zen Dots', sans-serif;
+    --navbar-height: 70px;
+    --transition-speed: 0.3s;
+    --transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
+    --bg-primary-light: #191970;
+    --bg-secondary-light: #191970;
+    --text-primary-light: #FFFFFF;
+    --text-secondary-light: #D1D5DB;
+    --accent-primary-light: #60A5FA;
+    --accent-secondary-light: #93C5FD;
+    --accent-green-cyan: #2DD4BF;
+    --accent-neon-blue: #00E7FF;
+    --card-bg-light: rgba(25, 25, 112, 0.8);
+    --card-shadow-light: rgba(0, 0, 0, 0.15);
+    --card-border-light: rgba(255, 255, 255, 0.3);
+    --button-bg-light: var(--accent-primary-light);
+    --button-text-light: #FFFFFF;
+    --button-hover-bg-light: var(--accent-green-cyan);
+    --border-radius-md: 16px;
+    --border-radius-lg: 50px;
+    --container-max-width: 1200px;
+    --container-padding-x: 40px;
+    --z-navbar: 1000;
+}
+
+/* Reset and Base Styles */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+html::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.7;
+    overflow-x: hidden;
+    background: linear-gradient(135deg, var(--bg-primary-light) 0%, #4B4B9A 100%);
+    color: var(--text-primary-light);
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding-x);
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-navbar);
+    height: var(--navbar-height);
+    display: flex;
+    align-items: center;
+    background: transparent;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding-x);
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.nav-logo .logo {
+    width: 32px;
+    height: 32px;
+}
+
+.nav-logo .logo .logo-outer {
+    stroke: var(--accent-primary-light);
+}
+
+.nav-logo .logo .logo-inner {
+    stroke: var(--text-primary-light);
+}
+
+.nav-logo .logo-text {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--text-primary-light);
+}
+
+/* Hero Section */
+.hero {
+    padding: 5rem 0 4rem 0; /* Adjusted top padding to account for fixed navbar */
+    text-align: center;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 400;
+    color: transparent;
+    background: linear-gradient(90deg, var(--accent-primary-light) 0%, var(--accent-secondary-light) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary-light);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* App Selection Section */
+.app-selection {
+    padding: 4rem 0;
+}
+
+.app-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.app-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #2A2A72 0%, #4B4B9A 100%);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    transition: border-color var(--transition-speed) var(--transition-ease);
+}
+
+.app-card:hover {
+    border-color: var(--accent-neon-blue);
+}
+
+.app-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: transparent;
+    background: linear-gradient(90deg, var(--accent-primary-light) 0%, var(--accent-secondary-light) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.app-description {
+    font-size: 1rem;
+    color: var(--text-secondary-light);
+    text-align: center;
+}
+
+.coming-soon {
+    font-size: 0.8rem;
+    color: var(--accent-green-cyan);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin-left: 8px;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 12px 32px;
+    border-radius: var(--border-radius-md);
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: background-color var(--transition-speed) var(--transition-ease), transform var(--transition-speed) var(--transition-ease), box-shadow var(--transition-speed) var(--transition-ease), color var(--transition-speed) var(--transition-ease);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--button-bg-light) 0%, var(--accent-secondary-light) 100%);
+    color: var(--button-text-light);
+    box-shadow: 0 4px 15px rgba(96, 165, 250, 0.3);
+}
+
+.btn-primary:hover {
+    background: var(--button-hover-bg-light);
+    color: #1A1A3D;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(45, 212, 191, 0.4);
+}
+
+.btn-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Footer */
+.footer {
+    padding: 1.5rem 0;
+    background: linear-gradient(135deg, #2A2A72 0%, #4B4B9A 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-secondary-light);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero {
+        padding: 4.5rem 0 3rem 0;
+    }
+
+    .app-selection {
+        padding: 3rem 0;
+    }
+
+    .app-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-logo .logo {
+        width: 24px;
+        height: 24px;
+    }
+
+    .nav-logo .logo-text {
+        font-size: 1.5rem;
+    }
+}
